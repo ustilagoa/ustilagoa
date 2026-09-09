@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+<style>
+  :root {
+    --ground: #fbfaf8;
+    --surface: #ffffff;
+    --ink: #1b1a19;
+    --muted: #6a6560;
+    --rule: #e2ded8;
+    --accent: #1b4d5c;
+    --accent-soft: #eaf1f3;
+    --warn: #8c4a2f;
+    --warn-soft: #f8f0eb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #16181a;
+      --surface: #1e2123;
+      --ink: #ebe7e1;
+      --muted: #9e9891;
+      --rule: #32363a;
+      --accent: #83c0cf;
+      --accent-soft: #1d2c31;
+      --warn: #d18b6b;
+      --warn-soft: #2a2320;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
+  header.site {
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  header.site .wrap {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem;
+    padding-top: 1rem; padding-bottom: 1rem;
+  }
+  header.site .home { font-weight: 700; letter-spacing: 0.06em; text-decoration: none; color: var(--ink); }
+  header.site nav { display: flex; gap: 1.25rem; font-size: 0.9375rem; }
+  main .wrap { padding-top: 2.5rem; padding-bottom: 4rem; }
+  h1 { font-size: 1.75rem; line-height: 1.45; margin: 0 0 1.5rem; text-wrap: balance; }
+  h2 {
+    font-size: 1.25rem; line-height: 1.5; margin: 2.75rem 0 1rem;
+    padding-top: 1.5rem; border-top: 1px solid var(--rule); text-wrap: balance;
+  }
+  h3 { font-size: 1.0625rem; margin: 2rem 0 0.75rem; }
+  p, ul, ol { margin: 0 0 1.1rem; }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin-bottom: 0.5rem; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85em; word-break: break-all;
+  }
+  .lede { color: var(--muted); }
+  .table-scroll { overflow-x: auto; margin: 0 0 1.4rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; }
+  th, td { text-align: left; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 700; white-space: nowrap; }
+  blockquote {
+    margin: 0 0 1.4rem; padding: 1rem 1.25rem;
+    background: var(--warn-soft); border-left: 3px solid var(--warn);
+  }
+  blockquote > :last-child { margin-bottom: 0; }
+  .card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--surface); border: 1px solid var(--rule);
+    padding: 1.25rem; margin-bottom: 1rem;
+  }
+  .card strong { display: block; font-size: 1.125rem; margin-bottom: 0.3rem; color: var(--accent); }
+  .card span { color: var(--muted); font-size: 0.9375rem; }
+  footer.site {
+    border-top: 1px solid var(--rule); background: var(--surface);
+    color: var(--muted); font-size: 0.875rem;
+  }
+  footer.site .wrap { padding-top: 1.5rem; padding-bottom: 2.5rem; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="home" href="{{ '/' | relative_url }}">ustilagoa</a>
+    <nav>
+      <a href="{{ '/kagizo/' | relative_url }}">鍵蔵</a>
+      <a href="{{ '/aoba/' | relative_url }}">青葉</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>ustilagoa — iPhone / iPad 向けアプリ<br>
+    お問い合わせ: <a href="mailto:ustilagoa@icloud.com">ustilagoa@icloud.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
